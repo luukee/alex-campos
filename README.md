@@ -25,7 +25,7 @@ Run `npm install` from your command line in the project folder
 
 ## Dev environment
 
-Run `gulp dev` from your command line in the project folder
+Run `gulp dev` from your command line in the project folder. In another command line tab run `npm run watch` to watch for Tailwind classes.
 
 Opens a browser with the website for local development. BrowserSync automatically reloads if you make changes to:
 

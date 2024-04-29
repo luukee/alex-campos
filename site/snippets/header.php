@@ -48,8 +48,9 @@
   */
   ?>
   <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
+  <?= css('assets/css/styles.css') ?>
 </head>
-<body>
+<body class="mx-auto">
 
   <header class="header">
     <?php

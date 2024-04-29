@@ -2,7 +2,10 @@
   "name": "kirby-dev-env",
   "version": "0.0.1",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "watch": "npx tailwindcss -i ./src/css/tailwind.css -o ./assets/css/styles.css --content './site/**/*.php' -w",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./assets/css/styles.css --content './site/**/*.php' -m"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/andreaskoller/kirby-dev-env"
@@ -22,5 +25,8 @@
     "gulp-plumber": "^1.2.1",
     "gulp-watch": "^5.0.1",
     "vinyl-ftp": "^0.6.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.3"
   }
 }
