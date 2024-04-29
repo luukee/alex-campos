@@ -1,6 +1,6 @@
 # Kirby Dev Env
 
-Cloned from: https://github.com/andipollok/kirby-dev-env?tab=readme-ov-file
+Cloned from: https://github.com/andipollok/kirby-dev-env?tab=readme-ov-file, found [here](https://forum.getkirby.com/t/local-development-environment-with-gulp/17182)
 
 A development environment for [Kirby](http://getkirby.com) using [BrowserSync](https://www.browsersync.io/). 
 
