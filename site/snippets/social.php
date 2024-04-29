@@ -11,7 +11,7 @@
   https://getkirby.com/docs/guide/templates/snippets
 */
 ?>
-<span class="social">
+<span class="social text-zinc-900 dark:text-white">
   <a href="https://mastodon.social/@getkirby" aria-label="Follow us on Mastodon">
     <?= svg('assets/icons/mastodon.svg') ?>
   </a>

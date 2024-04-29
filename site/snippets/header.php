@@ -13,6 +13,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -49,40 +50,50 @@
   ?>
   <link rel="shortcut icon" type="image/x-icon" href="<?= url('favicon.ico') ?>">
   <?= css('assets/css/styles.css') ?>
+  <script>
+    /**
+     * Loads the theme stored
+     */
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
 </head>
-<body class="mx-auto">
+
+<body class="max-w-full dark:bg-zinc-900">
 
   <header class="header">
-    <?php
-    /*
-      We use `$site->url()` to create a link back to the homepage
-      for the logo and `$site->title()` as a temporary logo. You
-      probably want to replace this with an SVG.
-    */
-    ?>
-    <a class="logo" href="<?= $site->url() ?>">
+
+    <nav class="menu text-zinc-900 dark:text-white" role="navigation">
+      <div id="menuToggle">
+
+        <input name="toggle" type="checkbox" class="toggle-input" />
+        <label class="toggle-label" for="toggle">
+          <span class="sr-only toggle-span">menu</span>
+          <div class="bg-zinc-400"></div>
+          <div class="bg-zinc-400"></div>
+          <div class="bg-zinc-400"></div>
+        </label>
+
+        <ul id="menu" class="bg-zinc-800">
+          <?php foreach ($site->children()->listed() as $item) : ?>
+            <a <?php e($item->isOpen(), 'aria-current="page"') ?> href="<?= $item->url() ?>">
+              <li class="text-zinc-200">
+                <?= $item->title()->esc() ?>
+              </li>
+            </a>
+          <?php endforeach ?>
+          <?php snippet('social') ?>
+        </ul>
+
+      </div>
+    </nav>
+
+    <a class="logo text-zinc-900 dark:text-white" href="<?= $site->url() ?>">
       <?= $site->title()->esc() ?>
     </a>
-
-    <nav class="menu">
-      <?php
-      /*
-        In the menu, we only fetch listed pages,
-        i.e. the pages that have a prepended number
-        in their foldername.
-
-        We do not want to display links to unlisted
-        `error`, `home`, or `sandbox` pages.
-
-        More about page status:
-        https://getkirby.com/docs/reference/panel/blueprints/page#statuses
-      */
-      ?>
-      <?php foreach ($site->children()->listed() as $item): ?>
-      <a <?php e($item->isOpen(), 'aria-current="page"') ?> href="<?= $item->url() ?>"><?= $item->title()->esc() ?></a>
-      <?php endforeach ?>
-      <?php snippet('social') ?>
-    </nav>
   </header>
 
   <main class="main">
